@@ -17,6 +17,9 @@ _CSS3, HTML5, flexbox, basic responsive design_
 #### Duration
 **1-3 hours**
 
+#### Link
+https://github.com/resisttheurge/spa-assignments/tree/master/1-basic-css-and-html
+
 ### 2 - basic browser javascript
 A basic web app assignment meant to be a JavaScript refresher and introduction to the fundamentals of browser development.
 
@@ -28,6 +31,9 @@ _jQuery, local browser storage, basic JavaScript DOM, event-driven development_
 
 #### Duration
 **2-4 hours**
+
+#### Link
+https://github.com/resisttheurge/spa-assignments/tree/master/2-basic-browser-javascript
 
 ### 3 - controllers and components
 A basic AngularJS assignment that emphasizes state management and component-oriented design.
@@ -41,6 +47,9 @@ _AngularJS, bootstrap, webpack, LESS, component-oriented design_
 #### Duration
 **4-8 hours**
 
+#### Link
+https://github.com/resisttheurge/spa-assignments/tree/master/3-controllers-and-components
+
 ### 4 - routes and services
 A moderately complex AngularJS assignment that introduces routing for single page applications and services as a means to share state and behavior.
 
@@ -53,6 +62,9 @@ _UI-router, service-oriented state management, SPA routing_
 #### Duration
 **4-8 hours**
 
+#### Link
+https://github.com/resisttheurge/spa-assignments/tree/master/4-routes-and-services
+
 ### 5 - build and integration
 A complex AngularJS assignment meant to emphasize large-scale app design, reusable component libraries, backend integration, and build tooling.
 
@@ -64,3 +76,6 @@ _AngularJS backend integration, promises, ng-annotate, template caching, build p
 
 #### Duration
 **8-16 hours**
+
+#### Link
+https://github.com/resisttheurge/spa-assignments/tree/master/5-build-and-integration
