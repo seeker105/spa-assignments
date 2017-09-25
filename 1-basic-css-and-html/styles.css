@@ -18,11 +18,9 @@
     align-items: center;
     font-size: medium;
 }
-
 .header{
     display: flex;
     height: 6.66vh;
-    flex-grow: 1;
     background-color: pink;
     align-items: center;
     justify-content: center;
@@ -53,7 +51,6 @@
 .footer{
     display: flex;
     height: 6.66vh;
-    flex-grow: 1;
     background-color: grey;
     align-content: flex-end;
     justify-content: center;
