@@ -40,6 +40,7 @@ $(document).ready(() => {
         totalSpanJq.html("Total: " + total.toFixed(2));
         addendSpanJq.html(addend.toFixed(2));
         autoclickerCountSpanJq.html(autoclickerCount);
+        save();
     }
     
     const save = () => {
@@ -79,20 +80,17 @@ $(document).ready(() => {
         total = total + addend;
         console.log(total)
         updatePage();
-        save();
     }
     
     const subtractCost = (cost) => {
         total = total - cost;
         updatePage();
-        save();
     }
     
     const startAutoclicker = () => {
         autoclickerCount = autoclickerCount + 1;
         intervals.push(setInterval(addAddend, 1000));
         updatePage();
-        save();
     }
     
     const reset = () => {
