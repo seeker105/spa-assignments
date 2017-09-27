@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>the holy grail</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="./main.js"></script>
-  </head>
-  <body>
-    <div class="app">
-      <div class="header">
-        Total: 0
-      </div>
-      <div class="body">
-        <div class="left"></div>
-        <div class="center">
-          <div class="button">
-            +1
-          </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>the holy grail</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./normalize.css">
+  <script src="./jquery-3.2.1.js"></script>
+  <script src="./main.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <div class="header">
+      <input type="button" value="Reset" id="reset_button" disabled></input>
+      <span id="total"></span>
+    </div>
+    <div class="body">
+      <div class="left">
+        <div class="button inactive" id="mul_button">
+          *1.2
         </div>
-        <div class="right"></div>
+        <div class="label">Cost: 10</div>
       </div>
-      <div class="footer">
-        Made w/ &lt;3 @ FastTrack'D
+      <div class="center">
+        <div class="button" id="add_button">
+          +<span id="addend"></span>
+        </div>
+      </div>
+      <div class="right">
+        <div class="label">
+          AutoClickers: <span id="autoclicker_count"></span>
+        </div>
+        <div class="button inactive" id="auto_click_button">
+          +1
+        </div>
+        <div class="label">
+          Cost: 100
+        </div>
       </div>
     </div>
-  </body>
+    <div class="footer">
+      Made w/ &lt;3 @ FastTrack'D
+    </div>
+  </div>
+</body>
+
 </html>
