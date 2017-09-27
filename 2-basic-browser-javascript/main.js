@@ -77,7 +77,6 @@ $(document).ready(() => {
     
     const addAddend = () => {
         total = total + addend;
-        // totalSpanJq.html("Total: " + total.toFixed(2));
         console.log(total)
         updatePage();
         save();
@@ -85,14 +84,12 @@ $(document).ready(() => {
     
     const subtractCost = (cost) => {
         total = total - cost;
-        // totalSpanJq.html("Total: " + total.toFixed(2));
         updatePage();
         save();
     }
     
     const startAutoclicker = () => {
         autoclickerCount = autoclickerCount + 1;
-        // autoclickerCountSpanJq.html("Total: " + autoclickerCount);
         intervals.push(setInterval(addAddend, 1000));
         updatePage();
         save();
@@ -119,7 +116,6 @@ $(document).ready(() => {
             return;
         }
         addend = addend * multiplier;
-        // addendSpanJq.html(addend.toFixed(2));
         subtractCost(10);
     })
     
@@ -131,14 +127,9 @@ $(document).ready(() => {
         startAutoclicker();
     })
     
-    
     resetButtonJq.click((event) => {
         reset();
     })
     
     load();
-    
-    
-    
-    
 })
