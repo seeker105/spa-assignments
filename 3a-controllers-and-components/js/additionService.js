@@ -1,7 +1,7 @@
 angular.module('clickerApp').service('additionService', ['$interval', function ($interval) {
 
     const INITIAL_LEFT_COST = 10
-    const INITIAL_RIGHT_COST = 15
+    const INITIAL_RIGHT_COST = 100
     const INITIAL_MULTIPLIER = 1.2
     this.multiplier = INITIAL_MULTIPLIER
     this.addend = 1
