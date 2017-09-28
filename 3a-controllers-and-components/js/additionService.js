@@ -1,58 +1,62 @@
-angular.module('clickerApp').service('additionService', [function () {
+angular.module('clickerApp').service('additionService', ['$interval', function ($interval) {
 
-    this.multiplier = 1.2
+    const INITIAL_LEFT_COST = 10
+    const INITIAL_RIGHT_COST = 10
+    const INITIAL_MULTIPLIER = 1.2
+    this.multiplier = INITIAL_MULTIPLIER
     this.addend = 1
     this.total = 0
-    this.leftCost = 10
-    this.rightCost = 10
+    this.leftCost = INITIAL_LEFT_COST
+    this.rightCost = INITIAL_RIGHT_COST
     this.autoclickerCount = 0
     this.rightActive = false
-    this.rightColor = 'gray'
+    this.rightColor = 'lightgray'
     this.leftActive = false
-    this.leftColor = 'gray'
+    this.leftColor = 'lightgray'
     this.resetActive = false
-    this.resetColor = 'gray'
-    intervals = []
+    this.resetColor = 'lightgray'
+    let intervals = []
 
     updatePage = () => {
-        if (this.total > 0 || this.addend > 1 || this.autoclickerCount > 0){
+        if (this.total > 0 || this.addend > 1 || this.autoclickerCount > 0) {
             this.resetActive = true
             this.resetColor = 'white'
         } else {
             this.resetActive = false
-            this.resetColor = 'gray'
+            this.resetColor = 'lightgray'
         }
 
-        if (this.total >= this.leftCost){
+        if (this.total >= this.leftCost) {
             this.leftActive = true
             this.leftColor = 'white'
         } else {
             this.leftActive = false
-            this.leftColor = 'gray'
+            this.leftColor = 'lightgray'
         }
 
-        if (this.total >= this.rightCost){
-            this.rightActive = true
-            this.rightColor = 'white'
-        } else {
-            this.rightActive = false
-            this.rightColor = 'gray'
+        // if (this.total >= this.rightCost) {
+        //     this.rightActive = true
+        //     this.rightColor = 'white'
+        // } else {
+        //     this.rightActive = false
+        //     this.rightColor = 'lightgray'
+        // }
+    }
+
+    this.multiplyAddend = () => {
+        if (this.leftActive) {
+            this.addend *= this.multiplier
+            this.multiplier = this.multiplier + 1
+            this.subtractCost(this.leftCost)
+            this.leftCost = this.leftCost + 5
+            updatePage()
         }
     }
 
     this.add = () => {
-        this.total = this.total + this.addend
+        this.total += this.addend
         console.log(this.total)
         updatePage()
-    }
-
-    this.multiplyAddend = () => {
-        if (this.leftActive){
-            this.subtractCost(this.leftCost)
-            this.addend = this.addend * this.multiplier
-            this.leftCost = this.leftCost + 5
-            this.multiplier = this.multiplier + 1
-        }
     }
 
     this.subtractCost = (cost) => {
@@ -61,37 +65,37 @@ angular.module('clickerApp').service('additionService', [function () {
     }
 
     this.startAutoclicker = () => {
-        // if (this.rightActive){
-            //     this.subtractCost(this.rightCost)
-            // this.rightCost = this.rightCost + 10
-        //     this.autoclickerCount = this.autoclickerCount + 1;
-        // intervals.push(setInterval(addAddend, 1000));
+        // if (this.rightActive) {
+            this.autoclickerCount = this.autoclickerCount + 1;
+            intervals.push($interval(this.add, 1000));
+            this.subtractCost(this.rightCost)
+            this.rightCost = this.rightCost + 10
+            updatePage()
         // }
-
-
 
     }
 
     this.reset = () => {
-        if (this.resetActive){
+        if (this.resetActive) {
             for (let x = 0; x < intervals.length; x++) {
-                clearInterval(intervals[x]);
+            clearInterval(intervals[x]);
+                $interval.cancel(intervals[x])
             }
-            this.multiplier = 1.2
+            this.multiplier = INITIAL_MULTIPLIER
             this.addend = 1
             this.total = 0
-            this.leftCost = 10
-            this.rightCost = 100
+            this.leftCost = INITIAL_LEFT_COST
+            this.rightCost = INITIAL_RIGHT_COST
             this.autoclickerCount = 0
             this.rightActive = false
-            this.rightColor = 'gray'
+            this.rightColor = 'lightgray'
             this.leftActive = false
-            this.leftColor = 'gray'
+            this.leftColor = 'lightgray'
             this.resetActive = false
-            this.resetColor = 'gray'
+            this.resetColor = 'lightgray'
             intervals = []
             updatePage()
         }
     }
-    
+
 }])

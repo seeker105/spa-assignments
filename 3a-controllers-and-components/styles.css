@@ -17,6 +17,7 @@ body{
     height: 150px;
     align-items: center;
     font-size: medium;
+    border: none;
 }
 
 .square_button{

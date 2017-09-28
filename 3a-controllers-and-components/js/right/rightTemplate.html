@@ -1,9 +1,10 @@
 <div class="label">
     AutoClickers: {{$ctrl.additionService.autoclickerCount}}
 </div>
-<div class="button" id="auto_click_button" ng-click="$ctrl.rightService.startAutoclicker()" ng-style="{ 'background-color': $ctrl.additionService.rightColor }">
+<button class="button" id="auto_click_button" ng-click="$ctrl.additionService.startAutoclicker()" 
+                ng-disabled="$ctrl.canClick()" ng-style="{'background-color': $ctrl.canClick() ? 'lightgray' : 'white'}">
     +1
-</div>
+</button>
 <div class="label">
     Cost: {{$ctrl.additionService.rightCost}}
 </div>
