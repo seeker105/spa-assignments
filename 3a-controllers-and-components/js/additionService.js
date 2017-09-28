@@ -9,13 +9,13 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
     this.leftCost = INITIAL_LEFT_COST
     this.rightCost = INITIAL_RIGHT_COST
     this.autoclickerCount = 0
+    let intervals = []
     this.rightActive = false
     this.rightColor = 'lightgray'
     this.leftActive = false
     this.leftColor = 'lightgray'
     this.resetActive = false
     this.resetColor = 'lightgray'
-    let intervals = []
 
     updatePage = () => {
         if (this.total > 0 || this.addend > 1 || this.autoclickerCount > 0) {
@@ -33,14 +33,6 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
             this.leftActive = false
             this.leftColor = 'lightgray'
         }
-
-        // if (this.total >= this.rightCost) {
-        //     this.rightActive = true
-        //     this.rightColor = 'white'
-        // } else {
-        //     this.rightActive = false
-        //     this.rightColor = 'lightgray'
-        // }
     }
 
     this.multiplyAddend = () => {
@@ -106,6 +98,7 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
         localStorage.setItem("addend", this.addend.toString());
         localStorage.setItem("rightCost", this.rightCost.toString());
         localStorage.setItem("leftCost", this.leftCost.toString());
+        localStorage.setItem("multiplier", this.multiplier.toString());
     }
 
     load = () => {
@@ -137,6 +130,12 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
             this.leftCost = parseInt(localStorage.getItem("leftCost"))
         } else {
             this.leftCost = INITIAL_LEFT_COST;
+        }
+
+        if (localStorage.getItem("multiplier")) {
+            this.multiplier = parseFloat(localStorage.getItem("multiplier"))
+        } else {
+            this.multiplier = INITIAL_MULTIPLIER;
         }
 
         intervals = [];
