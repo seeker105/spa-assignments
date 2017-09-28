@@ -1,4 +1,4 @@
-SPA Assignment 3
+SPA Assignment 3a - Revised Version
 ===
 
 Controllers and Components
