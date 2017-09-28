@@ -1,2 +1,5 @@
-<div class="square_button" ng-click="$ctrl.additionService.reset()" ng-style="{ 'background-color': $ctrl.additionService.resetColor }">Reset</div>
+<div class="square_button" 
+    ng-click="$ctrl.additionService.reset()" 
+    ng-disabled="$ctrl.canClick()"
+    ng-style="{ 'background-color': $ctrl.canClick() ? 'lightgray' : 'white' }">Reset</div>
 <label>Total: {{$ctrl.additionService.total | number: 2}}</label>
