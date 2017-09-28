@@ -1,7 +1,7 @@
 angular.module('clickerApp').service('additionService', ['$interval', function ($interval) {
 
     const INITIAL_LEFT_COST = 10
-    const INITIAL_RIGHT_COST = 10
+    const INITIAL_RIGHT_COST = 15
     const INITIAL_MULTIPLIER = 1.2
     this.multiplier = INITIAL_MULTIPLIER
     this.addend = 1
@@ -50,6 +50,7 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
             this.subtractCost(this.leftCost)
             this.leftCost = this.leftCost + 5
             updatePage()
+            save()
         }
     }
 
@@ -57,28 +58,28 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
         this.total += this.addend
         console.log(this.total)
         updatePage()
+        save()
     }
 
     this.subtractCost = (cost) => {
         this.total = this.total - cost
         updatePage()
+        save()
     }
 
     this.startAutoclicker = () => {
-        // if (this.rightActive) {
-            this.autoclickerCount = this.autoclickerCount + 1;
-            intervals.push($interval(this.add, 1000));
-            this.subtractCost(this.rightCost)
-            this.rightCost = this.rightCost + 10
-            updatePage()
-        // }
-
+        this.autoclickerCount = this.autoclickerCount + 1;
+        intervals.push($interval(this.add, 1000));
+        this.subtractCost(this.rightCost)
+        this.rightCost = this.rightCost + 10
+        updatePage()
+        save()
     }
 
     this.reset = () => {
         if (this.resetActive) {
             for (let x = 0; x < intervals.length; x++) {
-            clearInterval(intervals[x]);
+                clearInterval(intervals[x]);
                 $interval.cancel(intervals[x])
             }
             this.multiplier = INITIAL_MULTIPLIER
@@ -95,7 +96,58 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
             this.resetColor = 'lightgray'
             intervals = []
             updatePage()
+            save()
         }
     }
+
+    save = () => {
+        localStorage.setItem("total", this.total.toString());
+        localStorage.setItem("autoclickerCount", this.autoclickerCount.toString());
+        localStorage.setItem("addend", this.addend.toString());
+        localStorage.setItem("rightCost", this.rightCost.toString());
+        localStorage.setItem("leftCost", this.leftCost.toString());
+    }
+
+    load = () => {
+        if (localStorage.getItem("total")) {
+            this.total = parseFloat(localStorage.getItem("total"))
+        } else {
+            this.total = 0;
+        }
+
+        if (localStorage.getItem("autoclickerCount")) {
+            this.autoclickerCount = parseInt(localStorage.getItem("autoclickerCount"))
+        } else {
+            this.autoclickerCount = 0;
+        }
+
+        if (localStorage.getItem("addend")) {
+            this.addend = parseFloat(localStorage.getItem("addend"))
+        } else {
+            this.addend = 1;
+        }
+
+        if (localStorage.getItem("rightCost")) {
+            this.rightCost = parseInt(localStorage.getItem("rightCost"))
+        } else {
+            this.rightCost = INITIAL_RIGHT_COST;
+        }
+
+        if (localStorage.getItem("leftCost")) {
+            this.leftCost = parseInt(localStorage.getItem("leftCost"))
+        } else {
+            this.leftCost = INITIAL_LEFT_COST;
+        }
+
+        intervals = [];
+        updatePage();
+        if (this.autoclickerCount > 0) {
+            for (let y = 0; y < this.autoclickerCount; y++) {
+                intervals.push($interval(this.add, 1000));
+            }
+        }
+    }
+
+    load()
 
 }])
