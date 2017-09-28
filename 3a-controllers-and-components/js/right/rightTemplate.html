@@ -1,8 +1,10 @@
 <div class="label">
     AutoClickers: {{$ctrl.additionService.autoclickerCount}}
 </div>
-<button class="button" id="auto_click_button" ng-click="$ctrl.additionService.startAutoclicker()" 
-                ng-disabled="$ctrl.canClick()" ng-style="{'background-color': $ctrl.canClick() ? 'lightgray' : 'white'}">
+<button class="button" id="auto_click_button" 
+    ng-click="$ctrl.additionService.startAutoclicker()" 
+    ng-disabled="$ctrl.canClick()" 
+    ng-style="{'background-color': $ctrl.canClick() ? 'lightgray' : 'white'}">
     +1
 </button>
 <div class="label">

@@ -1,4 +1,7 @@
-<div class="button" id="mul_button" ng-click="$ctrl.additionService.multiplyAddend()" ng-style="{ 'background-color': $ctrl.additionService.leftColor }">
-    *{{$ctrl.additionService.multiplier | number: 2}}
-</div>
+<button class="button" id="mul_button" 
+    ng-click="$ctrl.additionService.multiplyAddend()" 
+    ng-disabled="$ctrl.canClick()" 
+    ng-style="{ 'background-color': $ctrl.canClick() ? 'lightGray' : 'white' }">
+        *{{$ctrl.additionService.multiplier | number: 2}}
+</button>
 <div class="label">Cost: {{$ctrl.additionService.leftCost}}</div>

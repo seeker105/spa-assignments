@@ -36,14 +36,14 @@ angular.module('clickerApp').service('additionService', ['$interval', function (
     }
 
     this.multiplyAddend = () => {
-        if (this.leftActive) {
+        // if (this.leftActive) {
             this.addend *= this.multiplier
             this.multiplier = this.multiplier + 1
             this.subtractCost(this.leftCost)
             this.leftCost = this.leftCost + 5
             updatePage()
             save()
-        }
+        // }
     }
 
     this.add = () => {

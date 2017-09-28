@@ -2,4 +2,6 @@ angular.module('clickerApp').controller('leftController', ['additionService', fu
 
     this.additionService = additionService
 
+    this.canClick = () => this.additionService.total < this.additionService.leftCost
+
 }])
