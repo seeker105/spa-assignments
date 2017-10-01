@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>the holy grail</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./normalize.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js"></script>  
+  <script src="./app.js"></script>
+  <script src="./js/additionService.js"></script>
+  <script src="./js/header/headerComponent.js"></script>
+  <script src="./js/header/headerController.js"></script>
+  <script src="./js/left/leftComponent.js"></script>
+  <script src="./js/left/leftController.js"></script>
+  <script src="./js/right/rightComponent.js"></script>
+  <script src="./js/right/rightController.js"></script>
+  <script src="./js/center/centerComponent.js"></script>
+  <script src="./js/center/centerController.js"></script>
+  
+</head>
+
+<body ng-app="clickerApp">
+  <div class="app">
+    <ui-view></ui-view>
+    <!-- <header-component class="header"></header-component>
+    <div class="body">
+      <left-component class="left"></left-component>
+      <center-component class="center"></center-component>
+      <right-component class="right"></right-component>
+    </div> -->
+    <div class="footer">
+      Made w/ &lt;3 @ FastTrack'D
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+<button class="button" id="mul_button" 
+    ng-click="$ctrl.additionService.multiplyAddend()" 
+    ng-disabled="$ctrl.canClick()" 
+    ng-style="{ 'background-color': $ctrl.canClick() ? 'lightGray' : 'white',
+                'cursor': $ctrl.canClick() ? 'not-allowed' : 'pointer'}">
+        *{{$ctrl.additionService.multiplier | number: 2}}
+</button>
+<div class="label">Cost: {{$ctrl.additionService.leftCost}}</div>

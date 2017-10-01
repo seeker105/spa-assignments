@@ -1,0 +1,8 @@
+<button class="square_button" 
+    ng-click="$ctrl.additionService.reset()" 
+    ng-disabled="$ctrl.canClick()"
+    ng-style="{ 'background-color': $ctrl.canClick() ? 'lightgray' : 'white',
+                'cursor': $ctrl.canClick() ? 'not-allowed' : 'pointer'}">
+        Reset
+</button>
+<label>Total: {{$ctrl.additionService.total | number: 2}}</label>

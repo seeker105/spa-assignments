@@ -1,0 +1,88 @@
+body{
+    color: rgba(000, 000, 000, 0.87);
+    margin: 0px;
+}
+
+.body{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.button{
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    border-radius: 150px;
+    width: 150px;
+    height: 150px;
+    align-items: center;
+    font-size: medium;
+    border: none;
+}
+
+.square_button{
+    background-color: white;
+    padding: 5px;
+    margin: 2px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    height: 6.66vh;
+    background-color: pink;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86.66vh;
+    flex-grow: 1;
+    background-color: red;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86.66vh;
+    width: 960px;
+    background-color: green;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86.66vh;
+    flex-grow: 1;
+    background-color: blue;
+}
+
+.footer{
+    display: flex;
+    height: 6.66vh;
+    background-color: grey;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.inactive{
+    background-color: gray;
+}
+
+.label{
+    background-color: white;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+
